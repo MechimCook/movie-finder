@@ -7,9 +7,6 @@ const Movie = props => (
 	 		<span className="movie__value"> { props.title }</span>
 	 	</p>
 	 }
-	 {
-	 	props.error && <p className="movie__error">{ props.error }</p>
-	 }
 	</div>
 );
 

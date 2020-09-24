@@ -2,7 +2,7 @@ import React from "react";
 
 import Titles from "./components/Titles";
 import Form from "./components/Form";
-import Movie from "./components/Movie";
+import Results from "./components/Results";
 
 const API_KEY = "644624460dcd621295212339eb7f478d";
 
@@ -18,7 +18,7 @@ class App extends React.Component {
     const data = await api_call.json();
     if (title) {
       this.setState({
-        title: data.results[0].title,
+        results: data.results,
         error: ""
       });
     } else {
@@ -35,13 +35,13 @@ class App extends React.Component {
           <div className="main">
             <div className="container">
               <div className="row">
-                <div className="col-xs-5 title-container">
+                <div className="title-container">
                   <Titles />
                 </div>
-                <div className="col-xs-7 form-container">
+                <div className="form-container text-center">
                   <Form getMovie={this.getMovie} />
-                  <Movie
-                    title={this.state.title}
+                  <Results
+                    results={this.state.results}
                     error={this.state.error}
                   />
                 </div>
