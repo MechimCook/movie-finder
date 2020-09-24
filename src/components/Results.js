@@ -13,12 +13,14 @@ class Results extends React.Component {
         movieArr.push(
           <Movie
             title = {results[i].title}
+						overview = {results[i].overview}
+						image = {`https://image.tmdb.org/t/p/w500${results[i].poster_path}`}
             />
         )
 
     }
     return (
-      <div className="movie__info">
+      <div className="n">
         {movieArr}
         </div>
     )

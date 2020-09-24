@@ -34,7 +34,6 @@ class App extends React.Component {
         <div className="wrapper">
           <div className="main">
             <div className="container">
-              <div className="row">
                 <div className="title-container">
                   <Titles />
                 </div>
@@ -45,7 +44,6 @@ class App extends React.Component {
                     error={this.state.error}
                   />
                 </div>
-              </div>
             </div>
           </div>
         </div>
