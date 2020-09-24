@@ -14,7 +14,7 @@ class App extends React.Component {
   getMovie = async (e) => {
     e.preventDefault();
     const title = e.target.elements.title.value;
-    const api_call = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${title}&appid=${API_KEY}&page=1`);
+    const api_call = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${title}&appid=${API_KEY}&page=1&include_adult=false`);
     const data = await api_call.json();
     if (title) {
       this.setState({
@@ -24,7 +24,7 @@ class App extends React.Component {
     } else {
       this.setState({
         title: undefined,
-        error: "Please enter the values."
+        error: "Please enter the movie name."
       });
     }
   }
