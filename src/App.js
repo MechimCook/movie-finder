@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Titles from "./components/Titles";
+import Form from "./components/Form";
+import Movie from "./components/Movie";
+
+const API_KEY = "644624460dcd621295212339eb7f478d";
+
+class App extends React.Component {
+  state = {
+    title: undefined,
+    error: undefined
+  }
+  getMovie = async (e) => {
+    e.preventDefault();
+    const title = e.target.elements.title.value;
+    const api_call = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${title}&appid=${API_KEY}&page=1`);
+    const data = await api_call.json();
+    if (title) {
+      this.setState({
+        title: data.results[0].title,
+        error: ""
+      });
+    } else {
+      this.setState({
+        title: undefined,
+        error: "Please enter the values."
+      });
+    }
+  }
+  render() {
+    return (
+      <div>
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-5 title-container">
+                  <Titles />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <Form getMovie={this.getMovie} />
+                  <Movie
+                    title={this.state.title}
+                    error={this.state.error}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
 
 export default App;
