@@ -123,10 +123,7 @@ button:active {
 }
 
 .movie__info {
-  width: 60%;
-  font-size: 20px;
   font-weight: 200;
-  letter-spacing: 2px;
 }
 
 .movie__key {
