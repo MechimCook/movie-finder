@@ -12,7 +12,7 @@ class PageButtons extends React.Component {
       <form action={`/${this.props.target}/`}>
         <input type="hidden" name="query" value={this.props.query}/>
         <input type="hidden" name="page" value={this.props.page}/>
-        <button>{this.props.page}</button>
+        <button className={`arrows btn  ${this.props.side}`}><b>{this.props.page}</b></button>
       </form>
     );
   }

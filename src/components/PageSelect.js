@@ -14,21 +14,25 @@ class PageSelect extends React.Component {
     var target = this.props.target
     var last = this.props.lastPage
     for (var i = 1; i <= 3; i++) {
-      if (page - i > 0) {
+      if (page - i > 1) {
       backButtons.push(
         <PageButtons
+        key={`left${i}`}
         page={page - i}
         query={query}
         target={target}
+        side=" btn-arrow-left"
         />
       )
     }
       if (page + i < last) {
         nextButtons.push(
           <PageButtons
+          key={`right${i}`}
           page={page + i}
           query={query}
           target={target}
+          side="btn-arrow-right"
           />
         )
       }
@@ -58,7 +62,7 @@ class PageSelect extends React.Component {
       <div className="nav">
       {firstButton}
       {backButtons.reverse()}
-      <button >{page}</button>
+      <button className="front">{page}</button>
       {nextButtons}
       {lastButton}
       </div>
