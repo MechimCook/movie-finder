@@ -30,43 +30,43 @@ class Results extends React.Component {
     var movieArr = []
     var page = 1
     var lastPage = 1
-		if (data) {
-		var results = data.results
-    page = data.page
-    lastPage = data.total_pages
+    var pageSelect = ""
+    var totalResults = "No Results Found"
 
-    for (var i = 0; i < results.length; i++) {
-        movieArr.push(
-          <Movie
-					  key={i}
-            title = {results[i].title}
-						overview = {results[i].overview}
-						image = {`https://image.tmdb.org/t/p/w500${results[i].poster_path}`}
+//  check if data is in yet
+		if (data) {
+      var results = data.results
+      page = data.page
+      lastPage = data.total_pages
+
+      // build results if there are any
+      if (results && lastPage > 1) {
+        totalResults = `${data.total_results} Results Found`
+         pageSelect =  <PageSelect
+                    page={page}
+                    query={this.state.query}
+                    lastPage={lastPage}
+                    target={"movies"}
+                    />
+        for (var i = 0; i < results.length; i++) {
+          movieArr.push(
+            <Movie
+					       key={i}
+                 title = {results[i].title}
+						     overview = {results[i].overview}
+						     image = {`https://image.tmdb.org/t/p/w500${results[i].poster_path}`}
             />
         )
-
+      }
     }
-
   }
 	return (
-		<div className="movie__info">
-
-      <PageSelect
-      page={page}
-      query={this.state.query}
-      lastPage={lastPage}
-      target={"movies"}
-      />
-      <div>
-			   {movieArr}
+    <div className="movie__info">
+      <h3 className="no-results-found">{totalResults}</h3>
+      {pageSelect}
+      <div>{movieArr}</div>
+      {pageSelect}
       </div>
-      <PageSelect
-      page={page}
-      query={this.state.query}
-      lastPage={lastPage}
-      target={"movies"}
-      />
-			</div>
 	)
 }
 }
