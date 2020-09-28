@@ -22,7 +22,7 @@ class DetailsBody extends React.Component {
     <h4>Run Time: {`${Math.floor(this.props.runTime / 60)}:${this.props.runTime % 60}`}</h4> : null;
 
     const homePage = this.props.homePage === "" ? null :
-        <button onClick={event => window.location.href=this.props.homePage}>Watch This Movie</button>
+        <button className="buttonStyle center" onClick={event => window.location.href=this.props.homePage}>Watch This Movie</button>
 
 
     return (

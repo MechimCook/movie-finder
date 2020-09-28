@@ -8,22 +8,12 @@ const Collapse = ({ collapsed, children, name}) => {
     },
     expanded: {
       display: 'block'
-    },
-    buttonStyle: {
-      display: 'block',
-      width: '100%',
-      backgroundColor: '#777',
-      color: 'white',
-      cursor: 'pointer',
-      padding: '18px',
-      border: 'none',
-      outline: 'none'
     }
   };
 
   return (
     <div>
-      <h5 style={style.buttonStyle} onClick={() => setIsCollapsed(!isCollapsed)}>
+      <h5 className="buttonStyle w-100" onClick={() => setIsCollapsed(!isCollapsed)}>
       {name}
       </h5>
       <div
