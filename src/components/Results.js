@@ -54,6 +54,7 @@ class Results extends React.Component {
 					       key={i}
                  title = {results[i].title}
 						     overview = {results[i].overview}
+                 rating = {results[i].vote_average}
 						     image = {`https://image.tmdb.org/t/p/w500${results[i].poster_path}`}
             />
         )

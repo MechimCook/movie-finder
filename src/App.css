@@ -207,6 +207,29 @@ button {
   margin-top: -10px;
 }
 
+
+.Stars {
+  --percent: calc(var(--rating) / 10 * 100%);
+
+  display: inline-block;
+  font-size: 20px;
+  font-family: Times;
+  line-height: 1;
+}
+  .Stars:before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #fc0 var(--percent), #d6d6d6 var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
 .title-container__subtitle {
   font-style: italic;
   font-weight: 100;
