@@ -25,27 +25,30 @@ class Results extends React.Component {
 const data = this.state.data
 let thing = ""
     if (data) {
-      const genres = data.genres.map(genre => <li>{genre.name}</li>);
+      const genres = data.genres.map(genre => genre.name).join(', ');
       const title = data.title;
       const tagline = data.tagline
       const rating = data.vote_average
       const votes = data.vote_count
       const description = data.overview
-      const producedBy = data.production_companies.map(company => <li>{company.name}</li>);
-      const producedIn = data.production_countries.map(country => <li>{country.name}</li>);
+      const producedBy = data.production_companies.map(company => company.name).join(', ');
+      const producedIn = data.production_countries.map(country => country.name).join(', ');
       const releaseDate = new Date(data.release_date);
       const runTime = `${Math.floor(data.runtime / 60)}:${data.runtime % 60}`;
-      const languages = data.spoken_languages.map(language => <li>{language.name}</li>);
+      const languages = data.spoken_languages.map(language => language.name).join(', ');
+      const homePage = data.homepage === "" ? null :
+          <button onClick={event => window.location.href=data.homepage}>Watch This Movie</button>
+
       const castAndCrew = data.credits
       const cast = castAndCrew.cast.map(actor =>
-        <div className="actor-card">
+        <div className="actor-card" key= {actor.name}>
           <img className="icon" src={`https://image.tmdb.org/t/p/original${actor.profile_path}`} onError={(e)=>{e.target.onerror = null; e.target.src=defaultImage}} alt="icon" />
             <div className="card-body">
               <h5 >{actor.name} as {actor.character}</h5>
             </div>
         </div>);
         const crew = castAndCrew.crew.map(member =>
-          <div className="actor-card">
+          <div className="actor-card" key= {member.name}>
             <img className="icon" src={`https://image.tmdb.org/t/p/original${member.profile_path}`} onError={(e)=>{e.target.onerror = null; e.target.src=defaultImage}} alt="icon" />
               <div className="card-body">
                 <h5 >{member.job}: {member.name}</h5>
@@ -57,46 +60,31 @@ let thing = ""
     <h4>{tagline}</h4>
     <div className="Stars" style={{"--rating": rating}} />
     <p>{`${votes} Votes`}</p>
-    <img className="" src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} onError={(e)=>{e.target.onerror = null;}} alt=""/>
+    <img className="detail-img" src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} onError={(e)=>{e.target.onerror = null;}} alt=""/>
 
-    <p>{description}</p>
+    <p className="detail-desc">{description}</p>
 
-      <ul id="genres">
-      <li>Genres:</li>
-      {genres}
-      </ul>
+      <div>Genres: {genres}</div>
 
-      <ul id="genres">
-      <li>Produced By:</li>
-      {producedBy}
-      </ul>
+      <div>Produced By: {producedBy}</div>
 
-      <ul id="genres">
-      <li>Produced In:</li>
-      {producedIn}
-      </ul>
-      <ul id="genres">
-      <li>Languages Spoken:</li>
-      {languages}
-      </ul>
+      <div> Produced In: {producedIn}</div>
 
-
+      <div >Languages Spoken: {languages}</div>
 
       <h4>Release Date: {releaseDate.toDateString()}</h4>
       <h4>Run Time: {runTime}</h4>
 
-
-    <button onClick={event => window.location.href=data.homepage}>Watch This Movie</button>
-
-    <div id="casts">
+      {homePage}
+    <div>
     <h4>Cast</h4>
     {cast}
     </div>
-    <div id="crew">
+    <div>
     <h4>Crew</h4>
     {crew}
     </div>
-      </div>
+    </div>
   }
 	return (
     <div className="movie__info">
