@@ -24,18 +24,19 @@ class Results extends React.Component {
   render() {
 
 const data = this.state.data
-let details = ""
-    if (data) {
+let details = <div className="error-page center"><h3>Movie Not Found</h3></div>
+    if (data && data.title) {
       const title = data.title;
       const tagline = data.tagline
       const rating = data.vote_average
       const votes = data.vote_count
     details =
-    <div className="movie__detail">
+    <div>
     <h3>{title}</h3>
     <h4>{tagline}</h4>
     <div className="Stars" style={{"--rating": rating}} />
     <p>{`${votes} Votes`}</p>
+
     <DetailsBody
     backdropPath={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
     description={data.overview}
@@ -47,15 +48,19 @@ let details = ""
     runTime={data.runtime}
     homePage={data.homepage}
      />
+
     <CastAndCrew
     castAndCrew={data.credits}
     />
-    </div>
+</div>
   }
 	return (
     <div className="movie__info">
+        <div className="movie__detail">
     {details}
+        </div>
      </div>
+
 	)
 }
 }

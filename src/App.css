@@ -286,7 +286,16 @@ button {
   padding-top: 30px;
   min-height: 600px;
 }
+.error-page {
+  text-align: center;
+  min-height: 600px;
+}
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 input[type="text"] {
   background-color: transparent;
   border: 0;
