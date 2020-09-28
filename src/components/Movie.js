@@ -7,6 +7,7 @@ const Movie = props => (
 		     <h5 className="card-title">{props.title}</h5>
 		     <p className="card-text">{props.overview}</p>
 				 <div className="Stars" style={{"--rating": props.rating}} />
+				 <p className="card-title">{`${props.votes} Votes`}</p>
 		   </div>
  		 </div>
 );
