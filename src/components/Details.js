@@ -1,14 +1,15 @@
 import React from "react";
 import CastAndCrew from "./CastAndCrew.js";
 import DetailsBody from "./DetailsBody.js";
+import Recommended from "./Recommended.js";
 
  async function getMovie(id) {
 	const API_KEY = "644624460dcd621295212339eb7f478d";
-	return await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
+	return await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,recommendations`)
 		.then(response => response.json());
 }
 
-class Results extends React.Component {
+class Details extends React.Component {
 	constructor () {
      super()
      this.state = {}
@@ -19,8 +20,12 @@ class Results extends React.Component {
 		getMovie(parsed.id)
 		.then(data => this.setState({data: data}) )
   }
-
-
+  componentDidUpdate(prevProps) {
+  // Typical usage (don't forget to compare props):
+  if (this.props.location !== prevProps.location) {
+    window.location.reload();
+  }
+}
   render() {
 
 const data = this.state.data
@@ -52,6 +57,10 @@ let details = <div className="error-page center"><h3>Movie Not Found</h3></div>
     <CastAndCrew
     castAndCrew={data.credits}
     />
+    <Recommended
+    results={data.recommendations.results}
+     />
+
 </div>
   }
 	return (
@@ -65,4 +74,4 @@ let details = <div className="error-page center"><h3>Movie Not Found</h3></div>
 }
 }
 
-export default Results;
+export default Details;

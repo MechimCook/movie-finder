@@ -298,6 +298,24 @@ button {
   justify-content: center;
   align-items: center;
 }
+.scroller-wrapper {
+    width: 100%;
+    height: 450px;
+}
+
+.elem {
+    height: 100%;
+    display: inline-block;
+}
+.elem .card {
+    width: 150px;
+}
+.scroller {
+height: 100%;
+overflow:scroll;
+overflow-y: hidden;
+white-space:nowrap;
+}
 input[type="text"] {
   background-color: transparent;
   border: 0;
