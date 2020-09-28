@@ -223,6 +223,10 @@ button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  ul#genres li {
+  display:inline;
+  margin-right: 5px;
+}
 
 
 * {
@@ -274,6 +278,14 @@ button:active {
 
 .movie__info {
   font-weight: 200;
+  padding: 15px;
+}
+.movie__detail {
+  font-weight: 200;
+  width: 80%;
+  background: #808484;
+  margin: auto;
+  padding: 5px 10px 15px;
 }
 .nav {
   display: inline-flex;
