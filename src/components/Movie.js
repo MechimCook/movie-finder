@@ -1,8 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import defaultPoster from '../images/default-poster.jpeg';
+
+const style = {
+	movieLink: {
+		color: 'black'
+	},
+};
 const Movie = props => (
-	<Link to={`/movie/?id=${props.id}`}>
+	<Link style={style.movieLink} to={`/movie/?id=${props.id}`}>
 		 <div className="card">
 		   <img className="card-img" src={props.image} onError={(e)=>{e.target.onerror = null; e.target.src=defaultPoster}} alt="not_found.jpg"/>
 		   <div className="card-body">
