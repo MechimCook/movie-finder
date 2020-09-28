@@ -290,7 +290,9 @@ button {
   text-align: center;
   min-height: 600px;
 }
-
+.mt-10 {
+  margin-top: 10px;
+}
 .center {
   display: flex;
   justify-content: center;
