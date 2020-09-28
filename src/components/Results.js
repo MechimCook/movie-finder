@@ -7,7 +7,7 @@ import PageSelect from "./PageSelect";
  async function getResults(query, page) {
 
 	const API_KEY = "644624460dcd621295212339eb7f478d";
-	return await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&appid=${API_KEY}&page=${page}&include_adult=false`)
+	return await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`)
 		.then(response => response.json());
 }
 
@@ -21,7 +21,6 @@ class Results extends React.Component {
 		const parsed = queryString.parse(this.props.location.search);
 		getResults(parsed.query, parsed.page)
 		.then(data => this.setState({ data: data , query: parsed.query}) )
-
   }
 
 
