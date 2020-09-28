@@ -161,6 +161,11 @@ button {
   white-space: break-spaces;
   text-overflow: ellipsis;
 }
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+ }
 .card-img {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
