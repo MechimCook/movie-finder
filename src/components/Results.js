@@ -43,15 +43,20 @@ class Results extends React.Component {
       lastPage = data.total_pages
 
       // build results if there are any
-      if (results && lastPage > 1) {
-        totalResults = `${data.total_results} Results Found`
-        pageSelect =  <PageSelect
-                        page={page}
-                        query={this.state.query}
-                        lastPage={lastPage}
-                        target={"movies"}
-                      />
-        for (var i = 0; i < results.length; i++) {
+      if (results) {
+        const resultsNumber = results.length
+        totalResults = resultsNumber === 1 ? `1 Result Found` :
+          `${data.total_results} Results Found`;
+        if (lastPage > 1) {
+          pageSelect =
+            <PageSelect
+              page={page}
+              query={this.state.query}
+              lastPage={lastPage}
+              target={"movies"}
+            />
+        }
+        for (var i = 0; i < resultsNumber; i++) {
           movieArr.push(
             <Movie
 					       key={i}
