@@ -65,7 +65,7 @@ class Results extends React.Component {
                  rating = {results[i].vote_average}
                  votes = {results[i].vote_count}
                  id = {results[i].id}
-						     image = {`https://image.tmdb.org/t/p/w500${results[i].poster_path}`}
+						     image = {results[i].poster_path}
             />
         )
       }

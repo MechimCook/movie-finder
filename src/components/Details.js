@@ -50,7 +50,7 @@ let details = <div className="error-page center"><h3>Movie Not Found</h3></div>
           <p>{`${votes} Votes`}</p>
 
           <DetailsBody
-            backdropPath={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
+            image={data.backdrop_path}
             description={data.overview}
             genres={data.genres}
             producedBy={data.production_companies}

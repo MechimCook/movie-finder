@@ -23,7 +23,7 @@ class Recommended extends React.Component {
                     rating = {movie.vote_average}
                     votes = {movie.vote_count}
                     id = {movie.id}
-                    image = {`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    image = {movie.poster_path}
                   />
                 </div>)}
               </Scroll>

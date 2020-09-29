@@ -7,6 +7,8 @@ import React from "react";
 
 class DetailsBody extends React.Component {
   render() {
+    const image = !this.props.image ?  null :
+    `https://image.tmdb.org/t/p/w500${this.props.image}`
 
     const genres = this.props.genres.length <= 0 ?  null :
       <div className="mt-10"><div>Genres: </div><div>{this.props.genres.map(genre => genre.name).join(', ')}</div></div>;
@@ -32,7 +34,7 @@ class DetailsBody extends React.Component {
 
     return (
     	<div>
-        <img className="detail-img" src={this.props.backdropPath} onError={(e)=>{e.target.onerror = null;}} alt=""/>
+        <img className="detail-img" src={image} onError={(e)=>{e.target.onerror = null;}} alt=""/>
         <p className="detail-desc">{this.props.description}</p>
         {genres}
         {producedBy}
