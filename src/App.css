@@ -8,13 +8,13 @@ body {
 .wrapper {
   background: linear-gradient(to right, #e67e22, #e74c3c);
   min-height: 90vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 10vh;
 }
 .container{
 padding-bottom: 15px;
+width: 95% !important;
 }
 .front{
   z-index: 1
