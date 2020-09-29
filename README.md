@@ -1,17 +1,27 @@
 View example app [Here](https://brave-pare-5d73cd.netlify.app).
 
 ## To start
-  
-  
+
+
 #### run
 ### `cd movie-finder`
 #### then
 ### `npm start`
-  
-  
+
+
 ## Overview
 
-Movie finder uses the TMDB API to search movies by title. After searching a movie you will get a paginated list of movies. You can select a movie to view more details on said movie. This details page will display all relevent information availiable from the TMDB API. This includes if availiable, recommended movies which you can select to see additional indormation.
+Movie finder uses the TMDB API to search movies by title. After searching a movie you will get a paginated list of movies. You can select a movie to view more details on said movie. This details page will display all relevant information available from the TMDB API. This includes if available, recommended movies which you can select to see additional information.
+
+## Potential Future Features
+
+* Allow to search people and tv shows by swapping movie search button with drop down.
+* Allow users to see details on cast and crew including movies they worked on.
+* Current movies out now
+* Current popularity charts
+* Add filters to search
+* Rate movies
+
 
 ## Available Scripts
 
