@@ -1,5 +1,5 @@
 import React from "react";
-
+// directs to /movies/ with search params for results component to grab
 const Form = props => (
 	<form action="/movies/">
 		<input type="text" name="query" placeholder="movie name" required/>

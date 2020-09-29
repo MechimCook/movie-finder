@@ -1,12 +1,15 @@
 import React from "react";
 import Movie from "./Movie";
 import PageSelect from "./PageSelect";
+// pulls query and page from url search params
+// requests movies from TMDB using query and page
+// displays number of reuslts
+// builds page select with page information from response
+// builds movie cards for each movie object found
 
 
-
- async function getResults(query, page) {
-
-	const API_KEY = "644624460dcd621295212339eb7f478d";
+async function getResults(query, page) {
+  const API_KEY = "644624460dcd621295212339eb7f478d";
 	return await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`)
 		.then(response => response.json());
 }
@@ -16,6 +19,7 @@ class Results extends React.Component {
      super()
      this.state = {}
    }
+
 	componentDidMount () {
 		const queryString = require('query-string');
 		const parsed = queryString.parse(this.props.location.search);
@@ -41,12 +45,12 @@ class Results extends React.Component {
       // build results if there are any
       if (results && lastPage > 1) {
         totalResults = `${data.total_results} Results Found`
-         pageSelect =  <PageSelect
-                    page={page}
-                    query={this.state.query}
-                    lastPage={lastPage}
-                    target={"movies"}
-                    />
+        pageSelect =  <PageSelect
+                        page={page}
+                        query={this.state.query}
+                        lastPage={lastPage}
+                        target={"movies"}
+                      />
         for (var i = 0; i < results.length; i++) {
           movieArr.push(
             <Movie

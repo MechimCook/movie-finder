@@ -1,14 +1,14 @@
 import React from "react";
 import defaultImage from '../images/default-user-icon-6.jpg';
 import Collapse from './Collapse.js';
-
+// receives list of actor and crew objects
+// builds cards for each actor and crew
+// places each group of cards in a collapsible div
 
 
 class CastAndCrew extends React.Component {
   render() {
-
     const castAndCrew = this.props.castAndCrew
-
     const cast = castAndCrew.cast.length > 0 ?
     <Collapse
       name="Cast"
@@ -21,7 +21,6 @@ class CastAndCrew extends React.Component {
           </div>
       </div>)}
     </Collapse> : null ;
-
       const crew = castAndCrew.crew.length > 0 ?
       <Collapse
         name="Crew"
@@ -37,8 +36,8 @@ class CastAndCrew extends React.Component {
 
     return (
     	<div>
-      {cast}
-      {crew}
+        {cast}
+        {crew}
       </div>
     );
   }

@@ -1,4 +1,7 @@
 import React from "react";
+// takes the target param (this can be used to change url in case of new search type),
+// query, page, and arrow direction
+// builds page select button
 class PageButtons extends React.Component {
   constructor () {
      super()

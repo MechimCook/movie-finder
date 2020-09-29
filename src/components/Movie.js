@@ -1,7 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import defaultPoster from '../images/default-poster.jpeg';
-
+// takes movie id, image, title, overview, rating, and votes
+// builds movie card that redirects to the details of movie
+// if no image is found uses default poster
 const style = {
 	movieLink: {
 		color: 'black'

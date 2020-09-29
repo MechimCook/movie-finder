@@ -1,6 +1,10 @@
 import React from "react";
 import PageButtons from "./PageButtons.js";
 class PageSelect extends React.Component {
+  // takes current page number, search query, url target, last page of results
+  // builds page select buttons
+  // up to 3 pages back and forward
+  // a page 1 button, a last page button and current page button
   constructor () {
      super()
      this.state = {}
@@ -17,22 +21,22 @@ class PageSelect extends React.Component {
       if (page - i > 1) {
       backButtons.push(
         <PageButtons
-        key={`left${i}`}
-        page={page - i}
-        query={query}
-        target={target}
-        side=" btn-arrow-left"
+          key={`left${i}`}
+          page={page - i}
+          query={query}
+          target={target}
+          side=" btn-arrow-left"
         />
       )
     }
       if (page + i < last) {
         nextButtons.push(
           <PageButtons
-          key={`right${i}`}
-          page={page + i}
-          query={query}
-          target={target}
-          side="btn-arrow-right"
+            key={`right${i}`}
+            page={page + i}
+            query={query}
+            target={target}
+            side="btn-arrow-right"
           />
         )
       }
@@ -42,9 +46,9 @@ class PageSelect extends React.Component {
     if (page !== 1) {
        firstButton =
         <PageButtons
-        page={1}
-        query={query}
-        target={target}
+          page={1}
+          query={query}
+          target={target}
         />
 
     }
@@ -52,9 +56,9 @@ class PageSelect extends React.Component {
     if (page !== last) {
        lastButton =
         <PageButtons
-        page={last}
-        query={query}
-        target={target}
+          page={last}
+          query={query}
+          target={target}
         />
 
     }
