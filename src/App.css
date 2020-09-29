@@ -10,11 +10,11 @@ body {
   min-height: 90vh;
   justify-content: center;
   align-items: center;
-  padding: 10vh;
+  padding: 7vh;
 }
 .container{
 padding-bottom: 15px;
-width: 95% !important;
+width: 100% !important;
 }
 .front{
   z-index: 1
@@ -272,6 +272,9 @@ button {
   display: inline-block;
   margin: 10px;
 }
+.card-body {
+  white-space: break-spaces;
+}
 
 * {
   position: relative;
@@ -344,22 +347,20 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #fff !important;
 }
 
-
-
 button:active {
   outline: none;
 }
 
 .movie__info {
   font-weight: 200;
-  padding: 15px;
+  padding: 0px 1vh 15px;
 }
 .movie__detail {
   font-weight: 200;
-  width: 80%;
+  width: 95%;
   background: #808484;
   margin: auto;
-  padding: 5px 10px 15px;
+  padding: 5px 0vh 15px;
 }
 
 .buttonStyle {
@@ -372,6 +373,13 @@ button:active {
 }
 .w-100 {
   width: 100%;
+}
+.w-95 {
+  width: 95%;
+  margin: 5px auto;
+}
+.h-320 {
+  height: 320px;
 }
 .nav {
   display: inline-flex;

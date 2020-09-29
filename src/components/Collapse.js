@@ -13,8 +13,8 @@ const Collapse = ({ collapsed, children, name}) => {
 
   return (
     <div>
-      <h5 className="buttonStyle w-100" onClick={() => setIsCollapsed(!isCollapsed)}>
-      {name}
+      <h5 className="buttonStyle w-95" onClick={() => setIsCollapsed(!isCollapsed)}>
+         {name}
       </h5>
       <div
         className="collapse-content"
